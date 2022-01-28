@@ -1,17 +1,18 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PlaceSchema } from './app.schema';
-import { MongooseModule } from '@nestjs/mongoose';
+import {Module} from '@nestjs/common';
+import {AppController} from './app.controller';
+import {AppService} from './app.service';
+import {MongooseModule} from '@nestjs/mongoose';
+import {PlacesModule} from "./places/places.module";
 
 @Module({
-  imports: [
-      MongooseModule.forRoot(
-          'mongodb+srv://andiwillfly:ward121314@cluster0-etaet.mongodb.net/placer?retryWrites=true&w=majority',
-      ),
-      MongooseModule.forFeature([{ name: 'Place', schema: PlaceSchema }])
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        MongooseModule.forRoot(
+            'mongodb+srv://andiwillfly:ward121314@cluster0-etaet.mongodb.net/placer?retryWrites=true&w=majority',
+        ),
+        PlacesModule
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+}
