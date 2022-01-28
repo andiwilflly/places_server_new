@@ -25,8 +25,8 @@ export class PlacesController {
 
     @UseFilters(new AllExceptionsFilter())
     @Post()
-    async create(@Body() task: IPlace): Promise<IPlaceDoc> {
-        return await this.placesService.create(task);
+    async create(@Body() place: IPlace): Promise<IPlaceDoc> {
+        return await this.placesService.create(place);
     }
 
     @UseFilters(new AllExceptionsFilter())
@@ -45,9 +45,9 @@ export class PlacesController {
     @Put(':id')
     async update(
         @Param('id') id: string,
-        @Body() task: IPlace,
+        @Body() place: IPlace,
     ): Promise<IPlaceDoc> {
-        return await this.placesService.update(id, task);
+        return await this.placesService.update(id, place);
     }
 
     @UseFilters(new AllExceptionsFilter())

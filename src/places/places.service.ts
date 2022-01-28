@@ -13,9 +13,9 @@ export class PlacesService {
         return await this.placesModel.find().exec();
     }
 
-    async create(task: IPlace): Promise<IPlaceDoc> {
+    async create(place: IPlace): Promise<IPlaceDoc> {
         return await this.placesModel.create({
-            ...task,
+            ...place,
             _id: UUID(0).uuid(),
         });
     }
@@ -28,9 +28,9 @@ export class PlacesService {
         return await this.placesModel.findById(id).exec();
     }
 
-    async update(id: string, task: IPlace): Promise<IPlaceDoc> {
+    async update(id: string, place: IPlace): Promise<IPlaceDoc> {
         return await this.placesModel
-            .findByIdAndUpdate(id, task, {new: true})
+            .findByIdAndUpdate(id, place, { new: true })
             .exec();
     }
 
