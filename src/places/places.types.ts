@@ -12,6 +12,7 @@ interface IDescription {
 }
 
 export interface IPlace {
+    uuid?: string,
     name: IName;
     description: IDescription;
     address: string;

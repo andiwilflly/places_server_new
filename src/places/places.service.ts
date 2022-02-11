@@ -16,7 +16,7 @@ export class PlacesService {
     async create(place: IPlace): Promise<IPlaceDoc> {
         return await this.placesModel.create({
             ...place,
-            _id: UUID(0).uuid(),
+            _id: place.uuid || UUID(0).uuid(),
         });
     }
 
